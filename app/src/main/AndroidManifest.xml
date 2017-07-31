@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.techacademy.taison.yanai.taskapp">
+    
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:name=".TaskApp"
@@ -13,13 +15,26 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">//なんで.NoActionBarを消しただけでActionBar表示されたん
+            android:theme="@style/AppTheme">
+            //なんで.NoActionBarを消しただけでActionBar表示されたん
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".InputActivity"
+            android:label="タスク"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="jp.techacademy.taison.yanai.taskapp.InputActivity"/>
+        </activity>
+
+        <receiver android:name=".TaskAlarmReceiver"/>
+
     </application>
 
 </manifest>
