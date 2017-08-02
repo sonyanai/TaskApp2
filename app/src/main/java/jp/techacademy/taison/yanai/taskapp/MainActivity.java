@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import io.realm.Realm;
@@ -19,7 +20,7 @@ import io.realm.RealmResults;
 import io.realm.Sort;
 
 public class MainActivity extends AppCompatActivity {
-    public final static String EXTRA_TASK = "jp.techacademy.taro.kirameki.taskapp.TASK";
+    public final static String EXTRA_TASK = "jp.techacademy.taison.yanai.taskapp.TASK";
 
     private Realm mRealm;
     private RealmChangeListener mRealmListener = new RealmChangeListener() {
@@ -29,12 +30,17 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     private ListView mListView;
+
     private TaskAdapter mTaskAdapter;
+
+    //EditText mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //mEditText = (EditText)findViewById(R.id.search_edit);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         // ListViewの設定
         mTaskAdapter = new TaskAdapter(MainActivity.this);
         mListView = (ListView) findViewById(R.id.listView1);
+
 
         // ListViewをタップしたときの処理
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

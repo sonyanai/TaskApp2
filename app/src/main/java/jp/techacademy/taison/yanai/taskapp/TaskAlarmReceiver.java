@@ -1,5 +1,6 @@
 package jp.techacademy.taison.yanai.taskapp;
 
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -8,17 +9,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.NotificationCompat;
-import android.util.Log;
 
 import io.realm.Realm;
-
-/**
- * Created by taiso on 2017/07/31.
- */
 
 public class TaskAlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+
         // 通知の設定を行う
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setSmallIcon(R.drawable.small_icon);

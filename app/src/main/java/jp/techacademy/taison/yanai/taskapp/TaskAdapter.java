@@ -1,7 +1,6 @@
 package jp.techacademy.taison.yanai.taskapp;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,14 +45,16 @@ public class TaskAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if (convertView == null) {
-            convertView = mLayoutInflater.inflate(android.R.layout.simple_list_item_2,null);
+            convertView = mLayoutInflater.inflate(android.R.layout.simple_list_item_2, null);
         }
 
-        TextView textView1 = (TextView)convertView.findViewById(android.R.id.text1);
-        TextView textView2 = (TextView)convertView.findViewById(android.R.id.text2);
+        TextView textView1 = (TextView) convertView.findViewById(android.R.id.text1);
+        TextView textView2 = (TextView) convertView.findViewById(android.R.id.text2);
 
         textView1.setText(mTaskList.get(position).getTitle());
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.JAPANESE);
         Date date = mTaskList.get(position).getDate();
         textView2.setText(simpleDateFormat.format(date));
