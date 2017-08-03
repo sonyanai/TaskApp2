@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private TaskAdapter mTaskAdapter;
 
     EditText mEditText;
+    Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mEditText = (EditText)findViewById(R.id.search_edit);
+        mButton = (Button)findViewById(R.id.search_button);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
 
         reloadListView();
     }
