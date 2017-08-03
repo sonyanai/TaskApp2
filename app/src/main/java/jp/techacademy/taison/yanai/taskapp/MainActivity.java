@@ -125,7 +125,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
         reloadListView();
+
+
+
+        mButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View view){
+                //フィルターでカテゴリ検索
+
+                String category = mEditText.getText().toString();
+                if(category != null){
+                    RealmResults<Task> taskRealmResults = mRealm.where(Task.class).contains("category",category).findAllSorted("date",Sort.DESCENDING);
+                    mTaskAdapter.setTaskList(mRealm.copyFromRealm(taskRealmResults));
+                    mListView.setAdapter(mTaskAdapter);
+                    mTaskAdapter.notifyDataSetChanged();
+                }
+            }
+        });
     }
 
     private void reloadListView() {
